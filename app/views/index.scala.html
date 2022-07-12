@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  @* Here's where we render the page title `String`. *@
+<title>Welcome to Play</title>
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+</head>
+<body>
+
+  <h1>Start Page</h1>
+
+  <div>
+    <div>
+      <input type="text" placeholder="email">
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <input type="text" placeholder="пароль">
+    </div>
+  </div>
+
+  <form method="get" action="@routes.HomeController.userIn()">
+    <div>
+      <div>
+        <button type="submit">Войти</button>
+      </div>
+    </div>
+  </form>
+
+  <div>
+    <div>
+      <button type="submit">Регистрация</button>
+    </div>
+  </div>
+
+  <hr>
+  <div id="footer">
+    <a href="@routes.HomeController.userIn()">Main Page</a>
+  </div>
+
+</body>
+</html>
