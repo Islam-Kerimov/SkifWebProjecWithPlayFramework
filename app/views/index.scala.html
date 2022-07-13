@@ -1,45 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  @* Here's where we render the page title `String`. *@
-<title>Welcome to Play</title>
-<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
-<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-</head>
-<body>
+    <head>
+        @* Here's where we render the page title `String`. *@
+    <title>Welcome to Play</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    </head>
+    <body>
 
-  <h1>Start Page</h1>
+        <h1>Start Page</h1>
 
-  <div>
-    <div>
-      <input type="text" placeholder="email">
-    </div>
-  </div>
+        <script type="text/javascript">
+            function goLogin() {
+                document.location =
+                        "@routes.HomeController.login()" + "?" + "email=" + document.getElementById("email").value + "&"
+                        + "password=" + document.getElementById("password").value;
+            }
+        </script>
 
-  <div>
-    <div>
-      <input type="text" placeholder="пароль">
-    </div>
-  </div>
+        <script type="text/javascript">
+            function goRegistration() {
+                document.location =
+                        "@routes.HomeController.registration()" + "?" + "email=" + document.getElementById("email").value + "&"
+                        + "password=" + document.getElementById("password").value;
+            }
+        </script>
 
-  <form method="get" action="@routes.HomeController.userIn()">
-    <div>
-      <div>
-        <button type="submit">Войти</button>
-      </div>
-    </div>
-  </form>
+        <div class="container">
+            <input id="email" class="storage" type="text" placeholder="email" name="email">
+            <input id="password" class="storage" type="text" placeholder="пароль" name="password">
+            <button class="button" type="submit" onclick="goLogin()">Войти</button>
+            <button class="button" type="submit" onclick="goRegistration()">Регистрация</button>
+        </div>
 
-  <div>
-    <div>
-      <button type="submit">Регистрация</button>
-    </div>
-  </div>
-
-  <hr>
-  <div id="footer">
-    <a href="@routes.HomeController.userIn()">Main Page</a>
-  </div>
-
-</body>
+    </body>
 </html>

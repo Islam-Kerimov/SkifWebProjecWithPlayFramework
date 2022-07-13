@@ -2,29 +2,22 @@ package models;
 
 import java.util.*;
 
-//@Entity
 public class Employee {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-//    @Constraints.Required
     private String email;
-
-//    @Constraints.Required
     private String password;
+    private String status;
 
     public Employee() {
     }
 
-    public Employee(Long id, String email, String password) {
+    public Employee(Long id, String email, String password, String status) {
         this.id = id;
         this.email = email;
         this.password = password;
+        this.status = status;
     }
-
-//    public static Finder<Long, User> find = new Finder<>(User.class);
 
     public Long getId() {
         return id;
@@ -50,6 +43,14 @@ public class Employee {
         this.password = password;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -59,20 +60,22 @@ public class Employee {
             return false;
         }
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) && Objects.equals(email, employee.email) && Objects.equals(password, employee.password);
+        return Objects.equals(id, employee.id) && Objects.equals(email, employee.email) &&
+            Objects.equals(password, employee.password) && Objects.equals(status, employee.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, password);
+        return Objects.hash(id, email, password, status);
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Employee{" +
             "id=" + id +
             ", email='" + email + '\'' +
             ", password='" + password + '\'' +
+            ", status='" + status + '\'' +
             '}';
     }
 }

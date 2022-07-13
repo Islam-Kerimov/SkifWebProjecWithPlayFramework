@@ -1,0 +1,41 @@
+@import models.Employee
+@(employee: Employee)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Main Page</title>
+    </head>
+    <body>
+        <h1>Main Page</h1>
+
+        <div class="container">
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordred table-striped">
+                    <thead>
+                        <tr>
+                            <th>EMPLOYEE</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@employee.getEmail</td>
+                            <td>@employee.getStatus</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="@routes.HomeController.index()">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button class="btn btn-info btn-primary" type="submit">Выход</button>
+                </div>
+            </div>
+        </a>
+
+    </body>
+</html>
